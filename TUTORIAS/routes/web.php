@@ -19,3 +19,23 @@ Route::resource('Tutor','TutorController');
 Route::resource('TutorPerfil','TutorPerfilController');
 Route::resource('TutorTutorados','TutorTutoradosController');
 Route::resource('TutorReportes','TutorReportesController');
+
+Route::resource('Login','LoginController');
+
+Route::prefix('Jefes')->group(function () {
+    Route::resources([
+        'estadisticas'=>'EstadisticasController',
+        'reportes'=>'ReportesController',
+        '/'=>'JefeLayoutController',
+        'personales'=>'PersonalesController',
+    ]);
+
+});
+
+
+
+Route::resource('tutores-coordinador','TutoresCoordinadoresController');
+
+
+Route::resource('Administrador','AdministradorLayoutController');
+Route::resource('Administrador-carreras','CarrerasController');
