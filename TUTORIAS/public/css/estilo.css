@@ -1,0 +1,49 @@
+#hea{
+    margin: 0.5em;
+    background: #f8f8f8;
+    padding: 1em;
+}
+#header{
+
+    padding-bottom: 1em;
+    border-bottom: 2px solid lightgray;
+    background: #f8f8f8;
+
+}
+#htec{
+    margin-top: 0.6em;
+    margin-right: 2.5em;
+    color: #5a6523;
+    text-align: end;
+    float: right;
+    font-family: fantasy;
+    font-size: 1.65em;
+
+
+}
+.ima2{
+    margin-top: 1em;
+    margin-left: 1.5em;
+}
+
+#saet{
+    float: right;
+    color: #879e0f;
+    font-family: fantasy;
+    margin-right:8em;
+    margin-top: -0.8em;
+    font-size: 1.3em;
+}
+
+#footer{
+
+    background: #c6c6c6;
+    font-size: 0.5em;
+    font-family: fantasy;
+    padding-bottom: -0.1em;
+    padding-top: 1.5em;
+
+}
+#textfo{
+    font-size:1.5em;
+}
