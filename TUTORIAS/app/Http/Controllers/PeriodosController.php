@@ -41,7 +41,7 @@ class PeriodosController extends Controller
         //
         $periodo=array('periodo'=>$request->descripcion_pe);
         Periodos::create($periodo);
-        return redirect("Administrador-periodos");
+        return redirect("Administrador/periodos");
     }
 
     /**
@@ -88,6 +88,6 @@ class PeriodosController extends Controller
     {
         //
         Periodos::destroy($id);
-        return redirect("Administrador-periodos");
+        return redirect("Administrador/periodos");
     }
 }

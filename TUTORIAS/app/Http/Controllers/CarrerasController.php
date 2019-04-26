@@ -39,7 +39,7 @@ class CarrerasController extends Controller
         //
         $carrera=array('nombre_carrera'=>$request->nombre_ca);
         Carreras::create($carrera);
-        return redirect("Administrador-carreras");
+        return redirect("Administrador/carreras");
 
     }
 
@@ -90,6 +90,6 @@ class CarrerasController extends Controller
         //dd($id);
         Carreras::destroy($id);
         //$id->delete();
-        return redirect("Administrador-carreras");
+        return redirect("Administrador/carreras");
     }
 }

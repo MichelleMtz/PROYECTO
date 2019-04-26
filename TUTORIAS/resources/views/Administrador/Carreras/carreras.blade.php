@@ -38,14 +38,16 @@
                     <tr>
                         <td>{{$carrera->id_carrera}}</td>
                         <td>{{$carrera->nombre_carrera}}</td>
-                        <td><a href="" class="btn btn-primary btn"><i class="far fa-edit"></i></a></td>
+                        <td>
+                            <a href="" class="btn btn-outline-primary btn">
+                                <img src="{{url('imagenes/edit.png')}}" alt="" width="15px" height="15px">
+                            </a>
 
                         <td>
-                            <form action="{{url("Administrador-carreras")."/".$carrera->id_carrera}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button href="" type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                            </form>
+                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#ModalEliminar">
+                                <img src="{{url('imagenes/trash.png')}}" width="15px" height="15px">
+                            </button>
+
                         </td>
                     </tr>
                 @endforeach
@@ -55,39 +57,52 @@
 
     <!-- ********MODAL AGREGAR****** -->
     <div class="modal fade" id="ModalAgregar" tabindex="-1" role="dialog" aria-hidden="true">
-        <form method="post" action="{{url("Administrador-carreras")}}">
+        <form method="post" action="{{url("Administrador/carreras")}}">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Registro de carreras</h5>
                 </div>
                 <div class="modal-body">
-
                         @csrf
-
                         <div class="form-row">
 
                             <div class="form-group col-6">
                                 <label for="inputno">Nombre</label>
                                 <input type="text" class="form-control" id="inputno" name="nombre_ca" placeholder="Nombre">
                             </div>
-
                         </div>
-
-
                 </div>
                 <div class="modal-footer">
-
                         <button type="submit" class="btn btn-outline-warning" style="color: #1b1e21">Guardar</button>
                         <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
-
-
                 </div>
             </div>
         </div>
         </form>
     </div>
 
+    <!--Modal eliminar-->
+    <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-hidden="true">
+        <form action="{{url("Administrador/carreras")."/".$carrera->id_carrera}}" method="post">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Eliminar Carrera</h5>
+                    </div>
+                    <div class="modal-body">
+                        @csrf
+                        @method('DELETE')
+                        Se va a eliminar de la lista
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-outline-warning" style="color: #1b1e21">Confirmar</button>
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
     @endsection
 
 

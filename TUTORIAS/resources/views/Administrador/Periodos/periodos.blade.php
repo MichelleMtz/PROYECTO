@@ -38,14 +38,15 @@
                 <tr>
                     <td>{{$periodo->id_periodo}}</td>
                     <td>{{$periodo->periodo}}</td>
-                    <td><a href="" class="btn btn-primary btn"><i class="far fa-edit"></i></a></td>
+                    <td><a href="" class="btn btn-outline-primary btn">
+                            <img src="{{url('imagenes/edit.png')}}" alt="" width="15px" height="15px">
+                        </a>
+                    </td>
 
                     <td>
-                        <form action="{{url("Administrador-periodos")."/".$periodo->id_periodo}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button href="" type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                        </form>
+                        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#ModalEliminar">
+                            <img src="{{url('imagenes/trash.png')}}" width="15px" height="15px">
+                        </button>
                     </td>
                 </tr>
             @endforeach
@@ -55,7 +56,7 @@
 
     <!-- ********MODAL AGREGAR****** -->
     <div class="modal fade" id="ModalAgregar" tabindex="-1" role="dialog" aria-hidden="true">
-        <form method="post" action="{{url("Administrador-periodos")}}">
+        <form method="post" action="{{url("Administrador/periodos")}}">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -88,4 +89,24 @@
         </form>
     </div>
 
+    <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-hidden="true">
+        <form action="{{url("Administrador/periodos")."/".$periodo->id_periodo}}" method="post">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Eliminar Periodo</h5>
+                    </div>
+                    <div class="modal-body">
+                        @csrf
+                        @method('DELETE')
+                        Se va a eliminar de la lista
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-outline-warning" style="color: #1b1e21">Confirmar</button>
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 @endsection

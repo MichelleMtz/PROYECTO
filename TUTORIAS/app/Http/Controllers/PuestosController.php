@@ -41,7 +41,7 @@ class PuestosController extends Controller
         //
         $puesto=array('descripcion_puesto'=>$request->descripcion_pu);
         Puestos::create($puesto);
-        return redirect("Administrador-puestos");
+        return redirect("Administrador/puestos");
     }
 
     /**
@@ -88,6 +88,6 @@ class PuestosController extends Controller
     {
         //
         Puestos::destroy($id);
-        return redirect("Administrador-puestos");
+        return redirect("Administrador/puestos");
     }
 }
