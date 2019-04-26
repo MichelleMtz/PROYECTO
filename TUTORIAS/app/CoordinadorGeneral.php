@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AdministradorLayout extends Model
+class CoordinadorGeneral extends Model
 {
     //
 }

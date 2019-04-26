@@ -22,6 +22,15 @@ Route::resource('TutorReportes','TutorReportesController');
 
 Route::resource('Login','LoginController');
 
+Route::prefix('CoordinadorG')->group(function () {
+    Route::resources([
+        'CategoriaPregunta'=>'CategoriaPreguntaController',
+        '/'=>'CoordinadorGeneralController',
+
+    ]);
+
+});
+
 Route::prefix('Jefes')->group(function () {
     Route::resources([
         'estadisticas'=>'EstadisticasController',

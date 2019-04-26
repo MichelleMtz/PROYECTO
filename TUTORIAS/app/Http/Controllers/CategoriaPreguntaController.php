@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\TutorTutorados;
-
-
+use App\CategoriaPregunta;
 use Illuminate\Http\Request;
 
-class TutorTutoradosController extends Controller
+class CategoriaPreguntaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +15,8 @@ class TutorTutoradosController extends Controller
     public function index()
     {
         //
-        //$categorias=Categorias::orderby('id_catpreg')->get();
-        //return view('categorias.index',compact('categorias'));
-        return view('Tutor.Tutorados.tutorados');
+        $categorias=CategoriaPregunta::orderby('id_categoria')->get();
+        return view('Coordinador-General.Categoria-Pregunta.CategoriaPregunta',compact('categorias'));
     }
 
     /**
@@ -41,15 +38,19 @@ class TutorTutoradosController extends Controller
     public function store(Request $request)
     {
         //
+        $categoria=array('nombre_catego'=>$request->nombre_catp);
+        CategoriaPregunta::create($categoria);
+        return redirect("CoordinadorG/CategoriaPregunta");
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\TutorTutorados  $tutorTutorados
+     * @param  \App\CategoriaPregunta  $categoriaPregunta
      * @return \Illuminate\Http\Response
      */
-    public function show(TutorTutorados $tutorTutorados)
+    public function show(CategoriaPregunta $categoriaPregunta)
     {
         //
     }
@@ -57,10 +58,10 @@ class TutorTutoradosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\TutorTutorados  $tutorTutorados
+     * @param  \App\CategoriaPregunta  $categoriaPregunta
      * @return \Illuminate\Http\Response
      */
-    public function edit(TutorTutorados $tutorTutorados)
+    public function edit(CategoriaPregunta $categoriaPregunta)
     {
         //
     }
@@ -69,10 +70,10 @@ class TutorTutoradosController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\TutorTutorados  $tutorTutorados
+     * @param  \App\CategoriaPregunta  $categoriaPregunta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TutorTutorados $tutorTutorados)
+    public function update(Request $request, CategoriaPregunta $categoriaPregunta)
     {
         //
     }
@@ -80,11 +81,14 @@ class TutorTutoradosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\TutorTutorados  $tutorTutorados
+     * @param  \App\CategoriaPregunta  $categoriaPregunta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TutorTutorados $tutorTutorados)
+    public function destroy($id)
     {
         //
+        CategoriaPregunta::destroy($id);
+        //$id->delete();
+        return redirect("CoordinadorG/CategoriaPregunta");
     }
 }

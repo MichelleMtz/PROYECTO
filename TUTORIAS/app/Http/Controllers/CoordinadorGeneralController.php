@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\TutorTutorados;
-
-
+use App\CoordinadorGeneral;
 use Illuminate\Http\Request;
 
-class TutorTutoradosController extends Controller
+class CoordinadorGeneralController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +15,7 @@ class TutorTutoradosController extends Controller
     public function index()
     {
         //
-        //$categorias=Categorias::orderby('id_catpreg')->get();
-        //return view('categorias.index',compact('categorias'));
-        return view('Tutor.Tutorados.tutorados');
+        return view('Coordinador-General.layout');
     }
 
     /**
@@ -46,10 +42,10 @@ class TutorTutoradosController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\TutorTutorados  $tutorTutorados
+     * @param  \App\CoordinadorGeneral  $coordinadorGeneral
      * @return \Illuminate\Http\Response
      */
-    public function show(TutorTutorados $tutorTutorados)
+    public function show(CoordinadorGeneral $coordinadorGeneral)
     {
         //
     }
@@ -57,10 +53,10 @@ class TutorTutoradosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\TutorTutorados  $tutorTutorados
+     * @param  \App\CoordinadorGeneral  $coordinadorGeneral
      * @return \Illuminate\Http\Response
      */
-    public function edit(TutorTutorados $tutorTutorados)
+    public function edit(CoordinadorGeneral $coordinadorGeneral)
     {
         //
     }
@@ -69,10 +65,10 @@ class TutorTutoradosController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\TutorTutorados  $tutorTutorados
+     * @param  \App\CoordinadorGeneral  $coordinadorGeneral
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TutorTutorados $tutorTutorados)
+    public function update(Request $request, CoordinadorGeneral $coordinadorGeneral)
     {
         //
     }
@@ -80,10 +76,10 @@ class TutorTutoradosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\TutorTutorados  $tutorTutorados
+     * @param  \App\CoordinadorGeneral  $coordinadorGeneral
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TutorTutorados $tutorTutorados)
+    public function destroy(CoordinadorGeneral $coordinadorGeneral)
     {
         //
     }
