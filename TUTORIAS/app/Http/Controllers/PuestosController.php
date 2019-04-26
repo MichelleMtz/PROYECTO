@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\CoordinadorGeneral;
+use App\Periodos;
+use App\Puestos;
 use Illuminate\Http\Request;
 
-class CoordinadorGeneralController extends Controller
+class PuestosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,8 @@ class CoordinadorGeneralController extends Controller
     public function index()
     {
         //
-        return view('Coordinador-General.layout');
+        $puestos=Puestos::orderby('id_puesto')->get();
+        return view("Administrador.Puestos.puestos",compact('puestos'));
     }
 
     /**
@@ -37,15 +39,18 @@ class CoordinadorGeneralController extends Controller
     public function store(Request $request)
     {
         //
+        $puesto=array('descripcion_puesto'=>$request->descripcion_pu);
+        Puestos::create($puesto);
+        return redirect("Administrador-puestos");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\CoordinadorGeneral  $coordinadorGeneral
+     * @param  \App\Puestos  $puestos
      * @return \Illuminate\Http\Response
      */
-    public function show(CoordinadorGeneral $coordinadorGeneral)
+    public function show(Puestos $puestos)
     {
         //
     }
@@ -53,10 +58,10 @@ class CoordinadorGeneralController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\CoordinadorGeneral  $coordinadorGeneral
+     * @param  \App\Puestos  $puestos
      * @return \Illuminate\Http\Response
      */
-    public function edit(CoordinadorGeneral $coordinadorGeneral)
+    public function edit(Puestos $puestos)
     {
         //
     }
@@ -65,10 +70,10 @@ class CoordinadorGeneralController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\CoordinadorGeneral  $coordinadorGeneral
+     * @param  \App\Puestos  $puestos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CoordinadorGeneral $coordinadorGeneral)
+    public function update(Request $request, Puestos $puestos)
     {
         //
     }
@@ -76,11 +81,13 @@ class CoordinadorGeneralController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\CoordinadorGeneral  $coordinadorGeneral
+     * @param  \App\Puestos  $puestos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CoordinadorGeneral $coordinadorGeneral)
+    public function destroy($id)
     {
         //
+        Puestos::destroy($id);
+        return redirect("Administrador-puestos");
     }
 }

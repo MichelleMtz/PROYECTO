@@ -1,4 +1,5 @@
 @extends ('Jefes.layout')
+@section('active_tutores-coordinador','active')
 @section('content-personales')
 <h4 class="text-center" style="margin-top: 1.5em; margin-bottom: 1.5em;"><b>Tutores/coordinador</b></h4>
 

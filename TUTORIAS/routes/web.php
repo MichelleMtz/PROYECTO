@@ -34,6 +34,7 @@ Route::prefix('CoordinadorG')->group(function () {
 Route::prefix('Jefes')->group(function () {
     Route::resources([
         'estadisticas'=>'EstadisticasController',
+        'tutores-coordinador'=>'TutoresCoordinadoresController',
         'reportes'=>'ReportesController',
         '/'=>'JefeLayoutController',
         'personales'=>'PersonalesController',
@@ -41,10 +42,22 @@ Route::prefix('Jefes')->group(function () {
 
 });
 
+Route::prefix('Administrador')->group(function () {
+    Route::resources([
+        'carreras'=>'CarrerasController',
+        'periodos'=>'PeriodosController',
+        '/'=>'AdministradorLayoutController',
+        'puestos'=>'PuestosController',
+    ]);
+
+});
 
 
-Route::resource('tutores-coordinador','TutoresCoordinadoresController');
+
+/*Route::resource('Jefe-tutores-coordinador','TutoresCoordinadoresController');*/
 
 
-Route::resource('Administrador','AdministradorLayoutController');
+/*Route::resource('Administrador','AdministradorLayoutController');
 Route::resource('Administrador-carreras','CarrerasController');
+Route::resource('Administrador-periodos','PeriodosController');
+Route::resource('Administrador-puestos','PuestosController');*/
