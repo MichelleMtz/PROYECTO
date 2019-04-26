@@ -16,10 +16,10 @@
     <header id="header">
 
         <div>
-            <img class="ima2" src="{{url('imagenes/edomex.png')}}" align="" width="100em" height="50em">
-            <img class="ima2" src="{{url('imagenes/edom.png')}}" width="50em" height="50em">
-            <img class="ima2" src="{{url('imagenes/TecNM.png')}}" width="100em" height="50em">
-            <img class="ima2" src="{{url('imagenes/TESVB.png')}}" width="105em" height="50em">
+            <img class="ima2" src="{{asset("imagenes/edomex.png")}}" align="" width="100em" height="50em">
+            <img class="ima2" src="{{asset('imagenes/edom.png')}}" width="50em" height="50em">
+            <img class="ima2" src="{{asset('imagenes/TecNM.png')}}" width="100em" height="50em">
+            <img class="ima2" src="{{asset('imagenes/TESVB.png')}}" width="105em" height="50em">
             <h3 id="htec"> <b>Tecnológico de Estudios Superiores de Valle de Bravo</b></h3>
             <h4 id="saet"> SAET (Sistema de Análisis del Expediente del tutorado)</h4>
 

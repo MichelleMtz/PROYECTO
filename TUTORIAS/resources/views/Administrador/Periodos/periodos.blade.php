@@ -1,7 +1,7 @@
 @extends ('Administrador.layoutA')
-@section('active_carreras','active')
+@section('active_periodos','active')
 @section('content-admin')
-    <h4 class="text-center" style="margin-top: 1.5em; margin-bottom: 1.5em;"><b>Carreras</b></h4>
+    <h4 class="text-center" style="margin-top: 1.5em; margin-bottom: 1.5em;"><b>Periodos</b></h4>
 
     <section>
 
@@ -27,68 +27,65 @@
         <table id="tab" class="table">
             <thead class="thead-light">
             <tr>
-                <th scope="col">Id carrera</th>
-                <th scope="col">Nombre</th>
+                <th scope="col">Id periodo</th>
+                <th scope="col">Periodo</th>
                 <th colspan="2">Acciones</th>
             </tr>
             </thead>
 
             <tbody>
-                @foreach($carreras as $carrera)
-                    <tr>
-                        <td>{{$carrera->id_carrera}}</td>
-                        <td>{{$carrera->nombre_carrera}}</td>
-                        <td><a href="" class="btn btn-primary btn"><i class="far fa-edit"></i></a></td>
+            @foreach($periodos as $periodo)
+                <tr>
+                    <td>{{$periodo->id_periodo}}</td>
+                    <td>{{$periodo->periodo}}</td>
+                    <td><a href="" class="btn btn-primary btn"><i class="far fa-edit"></i></a></td>
 
-                        <td>
-                            <form action="{{url("Administrador-carreras")."/".$carrera->id_carrera}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button href="" type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
+                    <td>
+                        <form action="{{url("Administrador-periodos")."/".$periodo->id_periodo}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button href="" type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </section>
 
     <!-- ********MODAL AGREGAR****** -->
     <div class="modal fade" id="ModalAgregar" tabindex="-1" role="dialog" aria-hidden="true">
-        <form method="post" action="{{url("Administrador-carreras")}}">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Registro de carreras</h5>
-                </div>
-                <div class="modal-body">
+        <form method="post" action="{{url("Administrador-periodos")}}">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Registro de periodos</h5>
+                    </div>
+                    <div class="modal-body">
 
                         @csrf
 
                         <div class="form-row">
 
                             <div class="form-group col-6">
-                                <label for="inputno">Nombre</label>
-                                <input type="text" class="form-control" id="inputno" name="nombre_ca" placeholder="Nombre">
+                                <label for="inputno">Periodo</label>
+                                <input type="text" class="form-control" id="inputno" name="descripcion_pe" placeholder="Nombre">
                             </div>
 
                         </div>
 
 
-                </div>
-                <div class="modal-footer">
+                    </div>
+                    <div class="modal-footer">
 
                         <button type="submit" class="btn btn-outline-warning" style="color: #1b1e21">Guardar</button>
                         <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
 
 
+                    </div>
                 </div>
             </div>
-        </div>
         </form>
     </div>
 
-    @endsection
-
-
-
+@endsection

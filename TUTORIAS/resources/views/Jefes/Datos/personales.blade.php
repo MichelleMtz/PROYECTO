@@ -1,4 +1,5 @@
 @extends ('Jefes.layout')
+@section('active_personales','active')
 @section('content-personales')
 
     <h4 class="text-center"><b>Datos personales</b></h4>
