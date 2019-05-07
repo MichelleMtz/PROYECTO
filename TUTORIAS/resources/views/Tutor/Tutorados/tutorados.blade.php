@@ -16,7 +16,7 @@
                     <input type="text" class="form-control" id="inputsearch" placeholder="Search">
                 </div>
             </div>
-            <div class="form-group col-6">
+            <!--<div class="form-group col-6">
                     <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#ModalAgregar" style="margin-left: 17em;">
                         <img src="{{url('imagenes/add.png')}}" width="15px" height="15px">
 
@@ -30,7 +30,7 @@
                     <button type="button" class="btn btn-outline-primary" style="margin-left: 1.5em;" data-toggle="modal" data-target="#ModalVer">
                         <img src="{{url('imagenes/eye1.png')}}" width="15px" height="15px">
                     </button>
-            </div>
+            </div>-->
         </div>
         <div class="form-row col-12">
 
@@ -42,20 +42,30 @@
                         <th scope="col">Apellido Paterno</th>
                         <th scope="col">Apellido Materno</th>
                         <th scope="col">Género</th>
-                        <th scope="col">Situación académica</th>
+                        <th scope="col">Teléfono</th>
                         <th scope="col">Correo Electrónico</th>
+                        <th scope="col">Expediente</th>
                     </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">201607047</th>
-                    <td>Estrella</td>
-                    <td>Jimenez</td>
-                    <td>Estrada</td>
-                    <td>Femenino</td>
-                    <td>Regular</td>
-                    <td>isc_jimenez.e@tesvb.edu.mx</td>
-                </tr>
+
+                    @foreach($Alumnos as $Alumno)
+                        <tr>
+                            <th scope="row">{{$Alumno->no_cuenta}}</th>
+                            <td>{{$Alumno->nombre}}</td>
+                            <td>{{$Alumno->apellido_paterno}}</td>
+                            <td>{{$Alumno->apellido_materno}}</td>
+                            <td>{{$Alumno->tipo_sexo}}</td>
+                            <td>{{$Alumno->telefono}}</td>
+                            <td>{{$Alumno->correo}}</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-primary" style="margin-left: 1.5em;" data-toggle="modal" data-target="#ModalVer">
+                                    <img src="{{url('imagenes/eye1.png')}}" width="15px" height="15px">
+                                </button>
+                            </td>
+                        </tr>
+                    @endforeach
+
 
                 </tbody>
             </table>

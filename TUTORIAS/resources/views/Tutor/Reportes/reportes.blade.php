@@ -14,7 +14,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <button type="button" class="btn btn-primary" style="margin-left: 34em;">
+                <button type="button" class="btn btn-outline-primary" style="margin-left: 34em;">
                     <img src="{{url('imagenes/descarga.png')}}" width="20px" height="20px">
                 </button>
             </div>

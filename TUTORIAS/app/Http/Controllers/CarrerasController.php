@@ -37,7 +37,7 @@ class CarrerasController extends Controller
     public function store(Request $request)
     {
         //
-        $carrera=array('nombre_carrera'=>$request->nombre_ca);
+        $carrera=array('nombre_carrera'=>$request->nombre_carrera);
         Carreras::create($carrera);
         return redirect("Administrador/carreras");
 
@@ -60,9 +60,10 @@ class CarrerasController extends Controller
      * @param  \App\Carreras  $carreras
      * @return \Illuminate\Http\Response
      */
-    public function edit(Carreras $carreras)
+    public function edit(Carreras $carrera)
     {
         //
+        //return view('Administrador.Carreras.edit',compact('carrera'));
     }
 
     /**
@@ -72,9 +73,12 @@ class CarrerasController extends Controller
      * @param  \App\Carreras  $carreras
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Carreras $carreras)
+    public function update(Request $request, Carreras $carrera)
     {
         //
+        //dd($carrera);
+        $carrera->update($request->all());
+        return redirect("Administrador/carreras");
     }
 
     /**

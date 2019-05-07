@@ -2,9 +2,7 @@
 @section('active_carreras','active')
 @section('content-admin')
     <h4 class="text-center" style="margin-top: 1.5em; margin-bottom: 1.5em;"><b>Carreras</b></h4>
-
     <section>
-
         <div class="form-row">
             <div class=" form-group col-8">
                 <div class="input-group mb-2">
@@ -16,7 +14,6 @@
                     <input type="text" class="form-control" id="inputsearch" placeholder="Search">
                 </div>
             </div>
-
             <div class="form-group col-4">
                 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#ModalAgregar" style="margin-left: 18em;">
                     <img src="{{url('imagenes/add.png')}}" width="15px" height="15px">
@@ -39,17 +36,17 @@
                         <td>{{$carrera->id_carrera}}</td>
                         <td>{{$carrera->nombre_carrera}}</td>
                         <td>
-                            <a href="" class="btn btn-outline-primary btn">
+                      <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#ModalEditar{{$carrera->id_carrera}}">
                                 <img src="{{url('imagenes/edit.png')}}" alt="" width="15px" height="15px">
-                            </a>
-
+                            </button>
                         <td>
-                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#ModalEliminar">
+                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#ModalEliminar{{$carrera->id_carrera}}">
                                 <img src="{{url('imagenes/trash.png')}}" width="15px" height="15px">
                             </button>
-
                         </td>
                     </tr>
+                    @include('Administrador.Carreras.edit')
+                    @include('Administrador.Carreras.delete')
                 @endforeach
             </tbody>
         </table>
@@ -67,9 +64,9 @@
                         @csrf
                         <div class="form-row">
 
-                            <div class="form-group col-6">
+                            <div class="form-group col-10">
                                 <label for="inputno">Nombre</label>
-                                <input type="text" class="form-control" id="inputno" name="nombre_ca" placeholder="Nombre">
+                                <input type="text" class="form-control" id="inputno" name="nombre_carrera" placeholder="Nombre">
                             </div>
                         </div>
                 </div>
@@ -82,27 +79,6 @@
         </form>
     </div>
 
-    <!--Modal eliminar-->
-    <div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-hidden="true">
-        <form action="{{url("Administrador/carreras")."/".$carrera->id_carrera}}" method="post">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Eliminar Carrera</h5>
-                    </div>
-                    <div class="modal-body">
-                        @csrf
-                        @method('DELETE')
-                        Se va a eliminar de la lista
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-outline-warning" style="color: #1b1e21">Confirmar</button>
-                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
     @endsection
 
 

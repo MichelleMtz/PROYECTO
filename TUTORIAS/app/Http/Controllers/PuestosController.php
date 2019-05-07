@@ -73,9 +73,11 @@ class PuestosController extends Controller
      * @param  \App\Puestos  $puestos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Puestos $puestos)
+    public function update(Request $request, Puestos $puesto)
     {
         //
+        $puesto->update($request->all());
+        return redirect("Administrador/puestos");
     }
 
     /**

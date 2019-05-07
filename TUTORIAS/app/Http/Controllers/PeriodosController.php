@@ -73,9 +73,11 @@ class PeriodosController extends Controller
      * @param  \App\Periodos  $periodos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Periodos $periodos)
+    public function update(Request $request, Periodos $periodo)
     {
         //
+        $periodo->update($request->all());
+        return redirect("Administrador/periodos");
     }
 
     /**
